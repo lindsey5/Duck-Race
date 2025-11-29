@@ -20,23 +20,25 @@ const Duck = ({
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setDuckPos(prev => {
-                if (finished || winner) return prev;
+            if(raceStarted){
+                setDuckPos(prev => {
+                    if (finished || winner) return prev;
 
-                const next = prev + Math.random();
+                    const next = prev + Math.random();
 
-                if (next >= maxPos) {
-                    setFinished(true);
-                    setWinner(prev => prev || number);
-                    return maxPos;
-                }
-                onProgress(number, next);
-                return next;
-            });
+                    if (next >= maxPos) {
+                        setFinished(true);
+                        setWinner(prev => prev || number);
+                        return maxPos;
+                    }
+                    onProgress(number, next);
+                    return next;
+                });
+            }
         }, 100);
 
         return () => clearInterval(interval);
-    }, [winner]);
+    }, [winner, raceStarted]);
 
     return (
         <div
