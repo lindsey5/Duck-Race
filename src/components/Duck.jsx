@@ -25,14 +25,12 @@ const Duck = ({
 
                 const next = prev + Math.random();
 
-                onProgress(number, next);
-
                 if (next >= maxPos) {
                     setFinished(true);
                     setWinner(prev => prev || number);
                     return maxPos;
                 }
-
+                onProgress(number, next);
                 return next;
             });
         }, 100);
