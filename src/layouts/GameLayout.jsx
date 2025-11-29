@@ -38,7 +38,7 @@ const GameLayout = () => {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-gradient-to-b from-blue-300 to-white">
+    <div className="relative w-full h-screen overflow-hidden bg-gradient-to-b from-blue-500 to-blue-100">
 
       {/* Moving Grass / Trees */}
       <div className="absolute top-0 left-0 w-[200%] h-[20%] bg-[url('/grass.png')] bg-[length:256px_100%] bg-repeat-x"></div>
