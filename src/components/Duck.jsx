@@ -14,9 +14,11 @@ const Duck = ({
     const [finished, setFinished] = useState(false);
 
     useEffect(() => {
-        setDuckPos(0);
-        setFinished(false);
-    }, [raceStarted]);
+        if(raceStarted) {
+            setDuckPos(0);
+            setFinished(false);
+        }
+    }, [raceStarted])
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -38,7 +40,7 @@ const Duck = ({
         }, 100);
 
         return () => clearInterval(interval);
-    }, [winner, raceStarted]);
+    }, [winner, finished, raceStarted]);
 
     return (
         <div

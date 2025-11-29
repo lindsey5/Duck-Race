@@ -105,25 +105,22 @@ const GameLayout = () => {
       ))}
 
       {winner && (
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-          text-4xl font-bold text-yellow-500 z-30">
-          Duck {winner} Wins!
+        <div className="flex flex-col items-center gap-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+            <p className="text-4xl font-bold text-yellow-500 ">Duck {winner} Wins!</p>
+            <div className="bg-white/80 backdrop-blur-md shadow-xl p-4 rounded-xl z-30 w-44 border border-gray-300">
+            <h2 className="text-xl font-bold mb-2">🏆 Leaderboard</h2>
+
+                {leaderboard
+                .slice()
+                .sort((a, b) => b.pos - a.pos)
+                .map((d, i) => (
+                    <p key={d.number} className="text-lg font-medium">
+                    #{i + 1} — Duck {d.number}
+                    </p>
+                ))}
+            </div>
         </div>
-      )}
-
-      {winner && <div className="absolute top-28 right-10 bg-white/80 backdrop-blur-md shadow-xl
-        p-4 rounded-xl z-30 w-44 border border-gray-300">
-        <h2 className="text-xl font-bold mb-2">🏆 Leaderboard</h2>
-
-        {leaderboard
-          .slice()
-          .sort((a, b) => b.pos - a.pos)
-          .map((d, i) => (
-            <p key={d.number} className="text-lg font-medium">
-              #{i + 1} — Duck {d.number}
-            </p>
-          ))}
-      </div>}
+        )}
 
     </div>
   );
