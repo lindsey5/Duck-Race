@@ -91,7 +91,7 @@ const GameLayout = () => {
       )}
 
       {/* Ducks */}
-      {raceStarted && Array.from({ length: ducksLength }).map((_, index) => (
+      {Array.from({ length: ducksLength }).map((_, index) => (
         <Duck
           key={index}
           number={index + 1}

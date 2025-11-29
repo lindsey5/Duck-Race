@@ -47,7 +47,7 @@ const Duck = ({
                 zIndex: 10 - number
             }}
         >
-            <img src="/duck-toy.png" alt="Duck" className="w-full h-auto" />
+            <img src={`/duck-toy (${number}).png`} alt="Duck" className="w-full h-auto" />
 
             {/* Duck number label */}
             <p className="absolute -top-6 left-1/2 -translate-x-1/2 bg-red-500 text-white 
