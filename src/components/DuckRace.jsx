@@ -28,7 +28,22 @@ const DuckRace = () => {
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-gradient-to-b from-blue-300 to-white">
-      
+      {/* Ducks as Lucide icons */}
+      <Activity
+        className="absolute bottom-32 w-16 h-16 text-yellow-400 transition-left"
+        style={{ left: `${duck1Pos}%` }}
+      />
+      <Activity
+        className="absolute bottom-16 w-16 h-16 text-orange-400 transition-left"
+        style={{ left: `${duck2Pos}%` }}
+      />
+
+      {/* Winner Display */}
+      {winner && (
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-yellow-500">
+          {winner}
+        </div>
+      )}
     </div>
   );
 };
