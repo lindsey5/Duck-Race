@@ -12,12 +12,6 @@ const GameLayout = () => {
   // 🔊 Audio refs (preloaded once)
   const runningSound = useRef(null);
   const winSound = useRef(null);
-  const defaultSound = useRef(null);
-
-  if(!defaultSound.current){
-    defaultSound.current = new Audio("/quack.mp3");
-    defaultSound.current.preload = "auto";
-  }
 
   if (!runningSound.current) {
     runningSound.current = new Audio("/sound.wav");
@@ -28,22 +22,6 @@ const GameLayout = () => {
     winSound.current = new Audio("/winner-sound.mp3");
     winSound.current.preload = "auto";
   }
-
-  useEffect(() => {
-    if (!raceStarted && !winner) {
-      runningSound.current.pause();
-      runningSound.current.currentTime = 0;
-
-      winSound.current.pause();
-      winSound.current.currentTime = 0;
-
-      defaultSound.current.loop = true;
-      defaultSound.current.play();
-    } else {
-      defaultSound.current.pause();
-      defaultSound.current.currentTime = 0;
-    }
-  }, [raceStarted, winner]);
 
   const startRace = () => {
     // reset sounds
