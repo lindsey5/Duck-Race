@@ -38,7 +38,7 @@ const GameLayout = () => {
       winSound.current.currentTime = 0;
 
       defaultSound.current.loop = true;
-      defaultSound.current.play().catch(() => {});
+      defaultSound.current.play();
     } else {
       defaultSound.current.pause();
       defaultSound.current.currentTime = 0;
